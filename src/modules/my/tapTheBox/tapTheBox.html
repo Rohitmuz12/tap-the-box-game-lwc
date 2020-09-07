@@ -1,0 +1,77 @@
+<template>
+    <div class="game-container">
+        <!-- <template if:true={isGameGoingToStart}>
+            <center style="padding:200px">
+                Please click on the Start button to play the game<br/>
+                
+                    <radio-group name="radioGroup"
+                                  label=""
+                                  options={chooseType}
+                                  value={gameType}
+                                  onchange={setGameType}
+                                   required
+                                  type="button">
+                    </radio-group>
+                    <br/><br/>
+                <button variant="success" label="Start Game" onclick={startGame}></button>
+            </center>
+        </template> -->
+        <template if:true={isGameStarted}>
+            <div class="header slds-var-p-around_medium">
+                <div class="slds-grid">
+                    <div class="slds-col slds-size_1-of-3">
+                        <span>score : {score}</span>
+                    </div>
+                    <div
+                        class="slds-col slds-size_1-of-3 slds-text-align_center"
+                    >
+                        <span>High Score : {highScore}</span>
+                    </div>
+                    <div
+                        class="slds-col slds-size_1-of-3 slds-text-align_right"
+                    >
+                        <span>Life : {remainingLife}</span>
+                    </div>
+                </div>
+            </div>
+            <div
+                onclick={handleTouch}
+                class="touchBox"
+                style="
+                    background: red;
+                    margin-top: 200px;
+                    margin-left: 200px;
+                    height: 70px;
+                    width: 70px;
+                "
+            ></div>
+        </template>
+    </div>
+    <template if:true={showLayer}>
+        <div class="overlay">
+            <div class="overlay-content">
+                <template if:true={isGameEnd}>
+                    <div class="slds-text-heading_large">
+                        Game Over!<br />
+                        Your Score : {score}<br />
+                    </div>
+                    <button
+                        class="slds-button slds-button_brand"
+                        onclick={startGame}
+                    >
+                        Start Again!
+                    </button>
+                </template>
+                <template if:true={gameNotStart}>
+                    <div class="slds-text-heading_large">Tap box to play!</div>
+                    <button
+                        onclick={startGame}
+                        class="slds-button slds-button_brand"
+                    >
+                        Start Game
+                    </button>
+                </template>
+            </div>
+        </div>
+    </template>
+</template>

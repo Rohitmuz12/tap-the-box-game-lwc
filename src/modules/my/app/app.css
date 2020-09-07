@@ -1,0 +1,9 @@
+.container {
+    width: 70vw;
+    margin: 1rem auto;
+    height: 60vh;
+}
+
+header {
+    line-height: 30px;
+}
